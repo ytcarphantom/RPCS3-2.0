@@ -1,27 +1,10 @@
-github/workflows/build.yml
-name: Build & Publish Release APK
-
-on:
-  push:
-    tags:
-      - '*'
-
-jobs:
-  Gradle:
-    runs-on: ubuntu-latest
-    steps:
-    - name: checkout code
-      uses: actions/checkout@v2
-    - name: setup jdk
-      uses: actions/setup-java@v1
-      with:
-        java-version: 11
-    - name: Make Gradle executable
-      run: chmod +x ./gradlew
-    - name: Build Release APK
-      run: ./gradlew assembleRelease
-    - name: Releasing using Hub
-      uses: sangatdesai/release-apk@main
-      env:
-       GITHUB_TOKEN: ${{ secrets.TOKEN }}
-       APP_FOLDER: app
+- name: github-action-release-apk
+  uses: gogoadl/github-action-release-apk@v1.0.0-alpha09
+              - name: Download a Build Artifact
+  uses: actions/download-artifact@v3.1.0
+  with:
+    # Artifact name
+    name: # optional
+    # Destination path
+    path: # optional
+          
